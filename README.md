@@ -35,7 +35,7 @@ Este proyecto implementa un sistema de reserva de canchas de fútbol utilizando 
 
 La clave del proyecto es su organización en módulos independientes dentro de Laravel, evitando el enfoque monolítico tradicional. Cada módulo encapsula sus propias entidades, controladores, rutas y lógica de negocio:
 
-![Estructura del Proyecto](estructura-proyecto.png)
+
 
 ```
 app/
@@ -126,7 +126,7 @@ Este módulo gestiona todo lo relacionado con la autenticación y gestión de us
 
 **Ejemplo de respuesta en registro exitoso:**
 
-![Registro de Usuario](registro-usuario.png)
+
 
 ```json
 {
@@ -362,3 +362,22 @@ Los siguientes componentes están pendientes de implementación completa:
 - Dashboard administrativo (implementación completa)
 - Funcionalidades avanzadas del módulo de Canchas
 
+## Capturas de Pantalla
+
+### 1. Base de Datos
+![Base de Datos](images/basededatos.png)
+
+### 2. Docker
+![Docker](images/Docker.png)
+
+### 3. Login
+![Login](images/Login.png)
+
+### 4. Logout
+![Logout](images/logout.png)
+
+### 5. Registrar
+![Registrar](images/Registrar.png)
+
+### 6. Ver Reservas
+![Ver Reservas](images/ver.png)
