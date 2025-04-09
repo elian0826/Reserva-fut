@@ -181,7 +181,6 @@ El sistema incluye dos roles principales:
 
 **Ejemplo de permisos del administrador:**
 
-![Usuario Autenticado](usuario-autenticado.png)
 
 ```json
 {
@@ -236,7 +235,7 @@ Este módulo gestiona la estructura básica para las canchas de fútbol:
 
 ### Inicio de sesión (admin):
 
-![Login Admin](login-admin.png)
+
 
 ```json
 {
@@ -286,7 +285,6 @@ Este módulo gestiona la estructura básica para las canchas de fútbol:
 
 ### Cierre de sesión:
 
-![Logout](logout.png)
 
 ```json
 {
@@ -379,5 +377,5 @@ Los siguientes componentes están pendientes de implementación completa:
 ### 5. Registrar
 ![Registrar](images/Registrar.png)
 
-### 6. Ver Reservas
+### 6. Ver
 ![Ver Reservas](images/ver.png)
