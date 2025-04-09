@@ -1,0 +1,7 @@
+{
+    "nombre": "Cancha Principal",
+    "ubicacion": "Sector Norte",
+    "capacidad": 22,
+    "precio_hora": 50000,
+    "descripcion": "Cancha de fútbol 11 con césped sintético"
+}

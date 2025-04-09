@@ -1,0 +1,90 @@
+name: reserva-futbol
+
+services:
+  # Servicio de aplicación Laravel
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: reserva-futbol
+    container_name: reserva-futbol-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - reserva-futbol
+    ports:
+      - "5174:5174"
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+
+  # Servidor web Nginx
+  nginx:
+    image: nginx:alpine
+    container_name: reserva-futbol-nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d/
+    networks:
+      - reserva-futbol
+    depends_on:
+      - app
+
+  # Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: reserva-futbol-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306"
+    networks:
+      - reserva-futbol
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+
+  # Redis para caché y colas
+  redis:
+    image: redis:alpine
+    container_name: reserva-futbol-redis
+    restart: unless-stopped
+    networks:
+      - reserva-futbol
+
+  # RabbitMQ para mensajería
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: reserva-futbol-rabbitmq
+    restart: unless-stopped
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    networks:
+      - reserva-futbol
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+networks:
+  reserva-futbol:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

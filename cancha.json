@@ -1,0 +1,7 @@
+{
+    "nombre": "Cancha 1",
+    "ubicacion": "Zona Norte",
+    "capacidad": 10,
+    "precio_hora": 100.00,
+    "descripcion": "Cancha de fútbol 5"
+}
