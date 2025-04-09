@@ -1,4 +1,8 @@
-# Sistema de Reserva de Canchas de Fútbol - Microservicios
+# Reserva-fut
+
+Reserva-fut es un sistema para gestionar reservas de canchas de fútbol. Este proyecto está diseñado para facilitar la administración de horarios, usuarios y pagos relacionados con las reservas.
+
+## Sistema de Reserva de Canchas de Fútbol - Microservicios
 
 Este proyecto implementa un sistema de reserva de canchas de fútbol utilizando una arquitectura de microservicios con Laravel, Docker y MySQL. 
 
@@ -221,6 +225,13 @@ Este módulo gestiona la estructura básica para las canchas de fútbol:
 - `PUT /api/canchas/{id}` - Actualizar cancha (admin)
 - `DELETE /api/canchas/{id}` - Eliminar cancha (admin)
 
+## Funcionalidades avanzadas del módulo de Canchas
+
+- Gestión de horarios y disponibilidad.
+- Confirmación y cancelación de reservas.
+- Visualización de estadísticas de uso.
+- Integración con métodos de pago.
+
 ## Ejemplo de Respuestas de la API
 
 ### Inicio de sesión (admin):
@@ -351,10 +362,3 @@ Los siguientes componentes están pendientes de implementación completa:
 - Dashboard administrativo (implementación completa)
 - Funcionalidades avanzadas del módulo de Canchas
 
-## Contacto
-
-Teléfono: 321 510 9228 - 301 624 5760
-Correo: proyectos@developapp.co
-Web: www.developapp.co
-#   R e s e r v a - f u t  
- # Reserva-fut
